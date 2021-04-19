@@ -1,18 +1,19 @@
 class Calculator {
-    constructor(previousOperandTextElement, currentOperandTextElement) {
-        this.previousOperandTextElement = previousOperandTextElement
-        this.currentOperandTextElement = currentOperandTextElement
-        this.clear()
+constructor(previousOperandTextElement, currentOperandTextElement) {
+    this.previousOperandTextElement = previousOperandTextElement
+    this.currentOperandTextElement = currentOperandTextElement
+    this.clear()
     }
-    clear ( ) {
+  
+    clear() {
         this.currentOperand = ''
         this.previousOperand = ''
         this.operation = undefined
-    }
-    delete () {
+      }
+    
+      delete() {
         this.currentOperand = this.currentOperand.toString().slice(0, -1)
-
-    }
+      }
     appendNumber(number) {
         if (number === '.' && this.currentOperand.includes('.')) return
         this.currentOperand = this.currentOperand.toString() + number.toString()
@@ -73,11 +74,12 @@ class Calculator {
         this.currentOperandTextElement.innerText =  
         this.getDisplayNumber(this.currentOperand)
         if (this.operation != null) {
-            this.prevuousOperandTextElement.innerText = `${this.getDisplayNumber(this.previousOperand)} ${this.operation}`
+            this.previousOperandTextElement.innerText = `${this.getDisplayNumber(this.previousOperand)} ${this.operation}`
         } else {
            this.previousOperandTextElement.innerText = ''
         }
     }
+    
 }
 
 const numberButtons = document.querySelectorAll('[data-number]')
